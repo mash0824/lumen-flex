@@ -24,3 +24,38 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Instruction
+dev-notes:
+clone project from https://github.com/mash0824/lumen-flex.git
+switch the branch -> git checkout test
+
+composer install
+
+cp .env.example .env
+#modify the db credentials
+nano .env
+
+## execute artisan commands
+php artisan key:generate
+php artisan migrate
+
+## dev server
+php artisan serve
+http://127.0.0.1:8000
+
+#command | make sure the EXT_VERSION is valid. example “1.0”
+php artisan import:customers
+
+## test
+./vendor/bin/phpunit
+
+#Rest Endpoints
+http://127.0.0.1:8000/customers
+
+http://127.0.0.1:8000/customers/{customerId}
+
+## Note*
+the service class in php artisan import:customers is the live service
+the service in the test file is Test service that I use for testing. they use different resources and services
+both of them are using the ImportCustomerInterface.php
