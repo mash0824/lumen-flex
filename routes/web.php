@@ -16,3 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+/**
+ * orignally i added a prefix api into the group,
+ * then I just follow the instruction on what endpoints
+ * i am going to create.
+ */
+$router->get('customers', [
+    'as' => 'customers.index', 'uses' => 'CustomerController@index'
+]);
+$router->get('customers/{customerId}', [
+    'as' => 'customers.show', 'uses' => 'CustomerController@show'
+]);

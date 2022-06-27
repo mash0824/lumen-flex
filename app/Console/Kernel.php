@@ -13,7 +13,11 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        /**
+         * modified by: ASJP
+         * action: add the command class to kernel
+         */
+        Commands\ImportCustomerCommand::class
     ];
 
     /**
